@@ -1,6 +1,9 @@
 import 'package:chat_gpt/controller/chat_gpt/chat_gpt_cubit.dart';
 import 'package:chat_gpt/controller/chat_gpt/chat_gpt_state.dart';
+import 'package:chat_gpt/core/style/app_color.dart';
 import 'package:chat_gpt/core/style/app_padding.dart';
+import 'package:chat_gpt/core/style/app_radius.dart';
+import 'package:chat_gpt/screens/home/empty_list.dart';
 import 'package:chat_gpt/widgets/card_item.dart';
 import 'package:chat_gpt/widgets/chat_gpt_form_field.dart';
 import 'package:flutter/material.dart';
@@ -25,16 +28,18 @@ class HomeScreen extends StatelessWidget {
           return Column(
             children: [
               Expanded(
-                child: ListView.builder(
-                  controller: cubit.scrollController,
-                  itemBuilder: (context, index) {
-                    return CardItem(
-                      index: index,
-                      text: cubit.list[index],
-                    );
-                  },
-                  itemCount: cubit.list.length,
-                ),
+                child: cubit.list.isNotEmpty
+                    ? ListView.builder(
+                        controller: cubit.scrollController,
+                        itemBuilder: (context, index) {
+                          return CardItem(
+                            index: index,
+                            text: cubit.list[index],
+                          );
+                        },
+                        itemCount: cubit.list.length,
+                      )
+                    : const EmptyList(),
               ),
               ChatGPTFormField(
                 onTap: cubit.getResponse,
