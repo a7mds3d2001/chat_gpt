@@ -22,6 +22,9 @@ class ChatGPTCubit extends Cubit<ChatGPTState> {
   /// LIST OF RESPONSES
   List<String> list = [];
 
+  /// LOADING
+  bool isLoading = false;
+
   /// POST DATA AND GET RESPONSE
   Future<void> getResponse() async {
     if (controller.text.isNotEmpty) {
@@ -29,6 +32,7 @@ class ChatGPTCubit extends Cubit<ChatGPTState> {
       controller.clear();
       FocusManager.instance.primaryFocus?.unfocus();
       list.add(text);
+      isLoading = true;
       emit(SuccessAddListState());
       await DioHelper.postData(
         url: "completions",
@@ -45,9 +49,11 @@ class ChatGPTCubit extends Cubit<ChatGPTState> {
         (value) {
           if (value.statusCode == 200) {
             list.add(value.data["choices"][0]["message"]["content"]);
+            isLoading = false;
             emit(SuccessAddListState());
           } else {
             list.add(value.statusMessage.toString());
+            isLoading = false;
             emit(SuccessAddListState());
             Fluttertoast.showToast(
               msg: value.statusMessage.toString(),

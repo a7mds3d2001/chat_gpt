@@ -42,7 +42,8 @@ class HomeScreen extends StatelessWidget {
                     : const EmptyList(),
               ),
               ChatGPTFormField(
-                onTap: cubit.getResponse,
+                onTap: cubit.isLoading ? () {} : cubit.getResponse,
+                isLoading: cubit.isLoading,
                 controller: cubit.controller,
               ),
             ],

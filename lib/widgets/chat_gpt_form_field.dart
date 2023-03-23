@@ -8,9 +8,11 @@ class ChatGPTFormField extends StatelessWidget {
     Key? key,
     required this.onTap,
     required this.controller,
+    required this.isLoading,
   }) : super(key: key);
   final Function() onTap;
   final TextEditingController controller;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,7 @@ class ChatGPTFormField extends StatelessWidget {
                 autofocus: true,
                 style: const TextStyle(color: white),
                 controller: controller,
-                onFieldSubmitted: (val){
+                onFieldSubmitted: (val) {
                   onTap();
                 },
                 decoration: const InputDecoration.collapsed(
@@ -41,10 +43,12 @@ class ChatGPTFormField extends StatelessWidget {
                 ),
               ),
             ),
-            InkWell(
-              onTap: onTap,
-              child: const Icon(Icons.send, color: white),
-            ),
+            isLoading
+                ? const CircularProgressIndicator(color: white)
+                : InkWell(
+                    onTap: onTap,
+                    child: const Icon(Icons.send, color: white),
+                  ),
           ],
         ),
       ),
