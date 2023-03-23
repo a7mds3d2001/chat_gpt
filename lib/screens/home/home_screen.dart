@@ -6,7 +6,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('ChatGPT'),),
+      appBar: AppBar(
+        title: const Text('ChatGPT'),
+      ),
     );
   }
 }
