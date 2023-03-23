@@ -1,8 +1,6 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:chat_gpt/controller/chat_gpt/chat_gpt_cubit.dart';
 import 'package:chat_gpt/controller/chat_gpt/chat_gpt_state.dart';
-import 'package:chat_gpt/core/style/app_color.dart';
-import 'package:chat_gpt/core/style/app_padding.dart';
+import 'package:chat_gpt/widgets/card_item.dart';
 import 'package:chat_gpt/widgets/chat_gpt_form_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -29,45 +27,9 @@ class HomeScreen extends StatelessWidget {
                 child: ListView.builder(
                   controller: cubit.scrollController,
                   itemBuilder: (context, index) {
-                    return Container(
-                      padding: padding20,
-                      color: index % 2 == 0
-                          ? Colors.transparent
-                          : const Color(0xff444654),
-                      child: Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            index % 2 == 0 ? Icons.person : Icons.ac_unit,
-                            color: white,
-                          ),
-                          const SizedBox(width: 10.0),
-                          Expanded(
-                            child: index % 2 == 0
-                                ? Text(
-                                    cubit.list[index],
-                                    style: const TextStyle(
-                                      color: white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  )
-                                : AnimatedTextKit(
-                                    animatedTexts: [
-                                      TypewriterAnimatedText(
-                                        cubit.list[index],
-                                        speed: const Duration(milliseconds: 40),
-
-                                        textStyle: const TextStyle(
-                                          color: white,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
-                                    ],
-                                    totalRepeatCount: 1,
-                                  ),
-                          ),
-                        ],
-                      ),
+                    return CardItem(
+                      index: index,
+                      text: cubit.list[index],
                     );
                   },
                   itemCount: cubit.list.length,

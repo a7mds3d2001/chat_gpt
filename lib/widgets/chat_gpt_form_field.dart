@@ -32,8 +32,11 @@ class ChatGPTFormField extends StatelessWidget {
                 autofocus: true,
                 style: const TextStyle(color: white),
                 controller: controller,
+                onFieldSubmitted: (val){
+                  onTap();
+                },
                 decoration: const InputDecoration.collapsed(
-                  hintText: "Ask What You Want....",
+                  hintText: "Ask What You Want ...",
                   hintStyle: TextStyle(color: white),
                 ),
               ),

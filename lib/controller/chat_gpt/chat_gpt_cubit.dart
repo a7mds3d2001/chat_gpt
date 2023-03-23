@@ -15,14 +15,19 @@ class ChatGPTCubit extends Cubit<ChatGPTState> {
 
   /// CONTROLLER
   TextEditingController controller = TextEditingController();
+
+  /// SCROLL
   ScrollController scrollController = ScrollController();
 
+  /// LIST OF RESPONSES
   List<String> list = [];
 
+  /// POST DATA AND GET RESPONSE
   Future<void> getResponse() async {
     if (controller.text.isNotEmpty) {
       String text = controller.text;
       controller.clear();
+      FocusManager.instance.primaryFocus?.unfocus();
       list.add(text);
       emit(SuccessAddListState());
       await DioHelper.postData(
@@ -38,7 +43,6 @@ class ChatGPTCubit extends Cubit<ChatGPTState> {
         },
       ).then(
         (value) {
-          print(value);
           if (value.statusCode == 200) {
             list.add(value.data["choices"][0]["message"]["content"]);
             emit(SuccessAddListState());

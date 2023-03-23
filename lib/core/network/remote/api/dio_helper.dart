@@ -21,7 +21,7 @@ class DioHelper {
   }) async {
     dio!.options.headers = {
       'Content-Type': 'application/json',
-      'Authorization': "Bearer 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"
+      'Authorization': "Bearer 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"
     };
     return await dio!.post(
       url,
