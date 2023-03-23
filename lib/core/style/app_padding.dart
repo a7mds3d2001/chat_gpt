@@ -14,6 +14,6 @@ const EdgeInsets padding20 = EdgeInsets.all(20);
 
 /// PADDING FOR TEXT FORM FIELD 20 5 20 5
 const EdgeInsets paddingTextFormField = EdgeInsets.symmetric(
-  vertical: 20.0,
-  horizontal: 5.0,
+  vertical: 15.0,
+  horizontal: 20.0,
 );
