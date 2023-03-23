@@ -1,16 +1,7 @@
-# chat_gpt
+# Chat GPT Application
 
-A new Flutter project.
+ChatGPT is a large language model created by OpenAI that is based on the GPT-3.5 architecture. It is designed to process and generate natural language text, enabling it to engage in conversations with humans in a way that feels natural and responsive.
 
-## Getting Started
+The ChatGPT project involved training the model on an enormous amount of text data, including books, articles, and websites. This allowed the model to learn patterns and relationships in language, and to develop an understanding of the nuances of human communication.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![ChatGPT](https://user-images.githubusercontent.com/70177377/227380630-8bc5b466-6633-4d57-a208-efe9ba14a4e6.png)
