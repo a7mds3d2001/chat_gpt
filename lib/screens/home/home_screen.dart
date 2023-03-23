@@ -1,5 +1,6 @@
 import 'package:chat_gpt/controller/chat_gpt/chat_gpt_cubit.dart';
 import 'package:chat_gpt/controller/chat_gpt/chat_gpt_state.dart';
+import 'package:chat_gpt/core/style/app_padding.dart';
 import 'package:chat_gpt/widgets/card_item.dart';
 import 'package:chat_gpt/widgets/chat_gpt_form_field.dart';
 import 'package:flutter/material.dart';
@@ -13,9 +14,9 @@ class HomeScreen extends StatelessWidget {
     final ChatGPTCubit cubit = ChatGPTCubit.get(context);
     return Scaffold(
       appBar: AppBar(
-        leading: const Icon(
-          Icons.ac_unit,
-          size: 30,
+        leading: Padding(
+          padding: padding5,
+          child: Image.asset('assets/images/logo.png'),
         ),
         title: const Text('ChatGPT'),
       ),

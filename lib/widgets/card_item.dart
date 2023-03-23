@@ -20,16 +20,24 @@ class CardItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Icon(
-            index % 2 == 0 ? Icons.person : Icons.ac_unit,
-            color: white,
-          ),
+          index % 2 == 0
+              ? const Icon(
+                  Icons.person,
+                  color: white,
+                  size: 30,
+                )
+              : Image.asset(
+                  'assets/images/logo.png',
+                  width: 30,
+                  height: 30,
+                ),
           const SizedBox(width: 10.0),
           Expanded(
             child: index % 2 == 0
                 ? Text(
                     text,
                     style: const TextStyle(
+                      fontSize: 18,
                       color: white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -40,6 +48,7 @@ class CardItem extends StatelessWidget {
                         text,
                         speed: const Duration(milliseconds: 40),
                         textStyle: const TextStyle(
+                          fontSize: 18,
                           color: white,
                           fontWeight: FontWeight.bold,
                         ),

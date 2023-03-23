@@ -14,6 +14,8 @@ dependencies:
   fluttertoast: ^8.2.1
   cupertino_icons: ^1.0.2
   animated_text_kit: ^4.2.2
+  flutter_native_splash: ^2.2.19
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -21,9 +23,19 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  # APP ASSETS
+  assets:
+    - assets/images/
 
   # APP FONTS
   fonts:
     - family: custom_font
       fonts:
         - asset: assets/fonts/custom_font.ttf
+
+
+flutter_native_splash:
+  color: "#343541"
+  image: assets/images/logo.png
+  color_dark: "#343541"
+  image_dark:  assets/images/logo.png
