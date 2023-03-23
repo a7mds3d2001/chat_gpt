@@ -4,15 +4,15 @@ class DioHelper {
   static Dio? dio;
 
   static init() {
-    dio = Dio(BaseOptions(
-      baseUrl: 'https://api.openai.com/v1/chat/',
-      followRedirects: false,
-      validateStatus: (status) {
-        return status! < 500;
-      },
-      connectTimeout: const Duration(minutes: 2),
-      receiveTimeout: const Duration(minutes: 2),
-    ));
+    dio = Dio(
+      BaseOptions(
+        baseUrl: 'https://api.openai.com/v1/chat/',
+        followRedirects: false,
+        validateStatus: (status) => status! < 500,
+        connectTimeout: const Duration(minutes: 2),
+        receiveTimeout: const Duration(minutes: 2),
+      ),
+    );
   }
 
   static Future<Response> postData({
@@ -21,10 +21,9 @@ class DioHelper {
   }) async {
     dio!.options.headers = {
       'Content-Type': 'application/json',
-      'Authorization':
-          "Bearer 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"
+      'Authorization': "Bearer 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"
     };
-    return dio!.post(
+    return await dio!.post(
       url,
       data: data,
     );
