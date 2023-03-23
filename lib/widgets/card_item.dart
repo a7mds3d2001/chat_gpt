@@ -37,7 +37,7 @@ class CardItem extends StatelessWidget {
                 ? Text(
                     text,
                     style: const TextStyle(
-                      fontSize: 18,
+                      height: 1.5,
                       color: white,
                       fontWeight: FontWeight.bold,
                     ),
@@ -48,7 +48,7 @@ class CardItem extends StatelessWidget {
                         text,
                         speed: const Duration(milliseconds: 40),
                         textStyle: const TextStyle(
-                          fontSize: 18,
+                          height: 1.5,
                           color: white,
                           fontWeight: FontWeight.bold,
                         ),
